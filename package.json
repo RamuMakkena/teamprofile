@@ -1,0 +1,29 @@
+{
+  "name": "teamprofile",
+  "version": "1.0.0",
+  "description": "A package to help create a team profile page",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RamuMakkena/teamprofile.git"
+  },
+  "author": "ramu makkena",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RamuMakkena/teamprofile/issues"
+  },
+  "homepage": "https://github.com/RamuMakkena/teamprofile#readme",
+  "dependencies": {
+    "inquirer": "^8.2.2",
+    "jest": "^27.5.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.4.1"
+  }
+}
