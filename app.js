@@ -164,7 +164,6 @@ confirmNewEmployee =  async () => {
     
        decision =  addMore;
     }) ;
-    console.log('we are sending : '+decision);
     return decision;
 }
 
@@ -176,7 +175,6 @@ typeOfEmployee = async () => {
         const {selectionType} = answers;
         selection =  selectionType;
     });
-    console.log ('selection type :'+selection)
     return selection;
 }
 //function to get team name
@@ -198,10 +196,8 @@ async function  init(){
     let interns = [];
     
     let wantToAddMore = await confirmNewEmployee();
-    console.log('are we adding new employees : '+wantToAddMore);
     while(wantToAddMore ){
         let selectionType = await typeOfEmployee();
-        console.log('we got : '+selectionType);
         switch(selectionType){
             case 'Engineer':
                  engineers.push(await addEngineer());         
