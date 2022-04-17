@@ -21,7 +21,8 @@
   "homepage": "https://github.com/RamuMakkena/teamprofile#readme",
   "dependencies": {
     "inquirer": "^8.2.2",
-    "jest": "^27.5.1"
+    "jest": "^27.5.1",
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "@types/jest": "^27.4.1"

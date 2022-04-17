@@ -33,13 +33,14 @@ class Manager extends Employee{
     constructor(name, id, email, officeNumber){
         super(name,id,email);
         this.officeNumber = officeNumber;
+        this.role = "Manager";
     }
 
     getOfficeNumber(){
         return this.officeNumber;
     }
     getRole(){
-        return "Manager";
+        return this.role;
     }
     setOfficeNumber(officeNumber){
         this.officeNumber = officeNumber;
@@ -50,12 +51,13 @@ class Engineer extends Employee{
     constructor(name, id, email, gitHub){
         super(name,id,email);
         this.gitHub = gitHub;
+        this.role = "Engineer";
     }
     getGitHub(){
         return this.gitHub;
     }
     getRole(){
-        return "Engineer";
+        return this.role;
     }
     setGitHub(gitHub){
         this.gitHub = gitHub;
@@ -66,6 +68,7 @@ class Intern extends Employee{
     constructor(name, id, email, school){
         super(name,id,email);
         this.school = school;
+        this.role = "Intern";
     }
     getSchool(){
         return this.school;
@@ -74,7 +77,7 @@ class Intern extends Employee{
         this.school = school;
     }
     getRole(){
-        return "Intern";
+        return this.role;
     }
 }
 

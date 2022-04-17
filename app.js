@@ -1,47 +1,112 @@
 const inquirer = require('inquirer');
-const fs = require('fs');
-const {Manager, Engineer, Intern} = require('./entities/employee')
+const validator = require('validator');
+const {Manager, Engineer, Intern} = require('./entities/employee');
+const { generateTeamPage } = require('./generateTeamPage');
+
 //Sepearting questions to reuse based on role.
 const teamNameQuestion =     {
         type: 'input',
         name: 'teamName',
         message:'Enter the teamName?',
-
+        validate: teamNameInput => {
+            if(!validator.isEmpty(teamNameInput)){
+                return true;
+            } else{
+                console.log('Please enter a valid team name: ');
+                return false;
+            }
+        }
     };
 const nameQuestion =     {
         type: 'input',
         name: 'name',
         message:"Enter Name?",
+        validate: nameInput => {
+            if(!validator.isEmpty(nameInput)){
+                return true;
+            } else{
+                console.log('Please enter a valid name: ');
+                return false;
+            }
+        }
     };
 const managerNameQuestion =     {
     type: 'input',
     name: 'managerName',
     message:"Enter Manager name?",
+    validate: nameInput => {
+        if(!validator.isEmpty(nameInput)){
+            return true;
+        } else{
+            console.log('Please enter a valid name: ');
+            return false;
+        }
+    }
 };
 const emailQuestion =     {
         type: 'input',
         name: 'emailAddress',
         message:"Enter email address?",
+        validate: emailInput => {
+            if(!validator.isEmpty(emailInput) && validator.isEmail(emailInput)){
+                return true;
+            } else{
+                console.log('Please enter a valid email: ');
+                return false;
+            }
+        }
     };
 const employeeIdQuestion =     {
         type: 'input',
         name: 'employeeId',
         message:"Enter employeeID ?",
+        validate: employeeIDInput => {
+            if(!validator.isEmpty(employeeIDInput)){
+                return true;
+            } else{
+                console.log('Please enter a valid employeeID: ');
+                return false;
+            }
+        }
     };
 const officeNumberQuestion =    {
         type: 'input',
         name: 'officeNumber',
-        message:"Enter office number?",
+        message:"Enter office number(Numeric without spaces)?",
+        validate: officeNumberInput => {
+            if(!validator.isEmpty(officeNumberInput) && validator.isNumeric(officeNumberInput)){
+                return true;
+            } else{
+                console.log('Please enter a valid numeric office number for manager with out spaces: ');
+                return false;
+            }
+        }
     };
 const schoolNameQuestion =     {
         type: 'input',
         name: 'school',
         message:"Enter school Name?",
+        validate: schoolNameInput => {
+            if(!validator.isEmpty(schoolNameInput)){
+                return true;
+            } else{
+                console.log('Please enter a valid school name for Intern: ');
+                return false;
+            }
+        }
     };
 const gitHubIdQuestion =     {
         type: 'input',
         name: 'gitHub',
         message:"Enter gitHub ID?",
+        validate: gitHubIDInput => {
+            if(!validator.isEmpty(gitHubIDInput)){
+                return true;
+            } else{
+                console.log('Please enter a valid github ID for engineer: ');
+                return false;
+            }
+        }
     };
 const addMoreEmployeesQuestion = {
     type: 'confirm',
@@ -148,7 +213,8 @@ async function  init(){
         wantToAddMore = await confirmNewEmployee();
     }
 
-    console.log(teamNameAnswer,manager, engineers, interns);
+    //Calling genateTeamPage
+    generateTeamPage(teamNameAnswer,manager, engineers, interns);
 
  }
 
