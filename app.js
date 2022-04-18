@@ -138,8 +138,8 @@ addEngineer = async () => {
     let engineer;
     await inquirer.prompt([nameQuestion, employeeIdQuestion, emailQuestion, gitHubIdQuestion])
                 .then( (answers) => {
-                    const {name,emailAddress,employeeId, gitHub  } = answers;
-                    engineer =  new Engineer(name,emailAddress,employeeId, gitHub);
+                    const {name,employeeId, emailAddress, gitHub  } = answers;
+                    engineer =  new Engineer(name,employeeId,emailAddress, gitHub);
                 }); 
     return engineer;
 }
@@ -150,7 +150,7 @@ addIntern = async () => {
     await inquirer.prompt([nameQuestion, employeeIdQuestion, emailQuestion, schoolNameQuestion])
     .then( (answers) => {
         const {name,emailAddress,employeeId, school  } = answers;
-        intern = new Intern(name,emailAddress,employeeId, school);
+        intern = new Intern(name,employeeId, emailAddress,school);
     }); 
     return intern;  
 }
