@@ -15,7 +15,7 @@ let template = `<!DOCTYPE html>
     <title class="title">${teamName}</title>
 </head>
 <body>
-    <section id="teamNameHeader" class="bg-info align-content-center text-white ">${teamName}</section>
+    <section id="teamNameHeader" class="bg-info h2 text-center text-white ">${teamName}</section>
     <section id="teamDetails" class="d-flex align-content-center flex-wrap">${getMangerContent(manager)}
         ${getEmployeesContent(employeeList)}
         ${getInternsContent(internsList)}
